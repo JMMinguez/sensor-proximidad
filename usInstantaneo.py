@@ -5,15 +5,15 @@ import time
 try:
       GPIO.setmode(GPIO.BCM)
 
-      PIN_TRIGGER = 4
-      PIN_ECHO = 17
+      PIN_TRIGGER =15 
+      PIN_ECHO = 18
 
       GPIO.setup(PIN_TRIGGER, GPIO.OUT)
       GPIO.setup(PIN_ECHO, GPIO.IN)
 
       GPIO.output(PIN_TRIGGER, GPIO.LOW)
 
-      print "Esperando a que se estabilice el US"
+      print ("Esperando a que se estabilice el US")
       time.sleep(2)
 
       GPIO.output(PIN_TRIGGER, GPIO.HIGH)
@@ -27,7 +27,7 @@ try:
 
       duracionPulso = finPulso - inicioPulso
       distancia = round(duracionPulso * 17150, 2)
-      print "Distancia: ", distancia, " cm"
+      print ("Distancia: ", distancia, " cm")
 
 finally:
       GPIO.cleanup()
