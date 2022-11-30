@@ -7,6 +7,14 @@ El ultrasonidos aporta información muy precisa sobre la distancia a objetos de 
 
 ![Fórmula distancia emisor-receptor](https://github.com/rsanchez2021/Image/blob/main/formula_distancia_emisor-receptor.png)
 
+De forma práctica, utilizaremos la fórmula con:
+```ṕython
+VEL_SON = 34300
+TIME = 2
+duracionPulso = finPulso - inicioPulso
+distancia = round(duracionPulso * (VEL_SON / 2), TIME)
+```
+
 Para más información te recomendamos ojear esta [pániga web](https://www.radiologyinfo.org/es/info/genus) donde explica más detalladamente el funcionamiento del sensor.
 
 ## Sensor de ultrasonidos HC-SR04
@@ -24,7 +32,7 @@ Su funcionamiento se basa en la primera emisión de un pulso que debe ser de al 
 
 ### Conexiones del dispositivo
 
-AÑADIR IMAGEN DEL CIRCUITO
+![Circuito p5 sensores](https://github.com/rsanchez2021/Image/blob/main/p5sensores_bb.png)
 
 ### Programación del ultrasonidos
 
@@ -50,4 +58,4 @@ Posteriormente se calcula la distancia mediante el uso de la [fórmula](https://
 
 EL ejercicio nos pide añadir tres leds para avisar al usuario de las distancias del objeto al ultrasonida. Leyendo el [datasheet](https://github.com/clases-julio/p5-distanciaus-rsanchez2021/blob/main/HC-SR04.pdf) del ultrasonido la distancia mínima que llega a medir es de 2cm yla máxima de 4m. De forma práctica, lo mínimo que hemos llegado a medir de forma fiable es de 2,5cm y un máximo de 40cm, por ello, hemos puesto en rojo a las distancias menores de 10cm, amarilla entre 10cm y 20cm y en verde mayores de 20cm.
 
-Como cosas importantes, es importante no disminuir el tiempo del puerto TRIGGER pues es imprescidible que sea al menos eso. Además, en caso de no mandar el primer pulso o no recibir las respuestas, el ultrasonido se quedará "pensando" y no avanzará, será necesario cerrar y volver a ejecutar el programa.
+Como cosas a considerar, es importante no disminuir el tiempo del puerto TRIGGER pues es imprescidible que sea al menos eso. Además, en caso de no mandar el primer pulso o no recibir las respuestas, el ultrasonido se quedará "pensando" y no avanzará, será necesario cerrar y volver a ejecutar el programa.
